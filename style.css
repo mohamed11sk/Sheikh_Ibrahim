@@ -1,251 +1,601 @@
+
 :root {
-    --primary: #222831; 
-    --secondary: #393E46; 
-    --accent: #00ADB5; 
-    --gold: #FFD369; 
-    --light: #EEEEEE; 
-    --card-bg: rgba(255, 255, 255, 0.12);
-    --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --primary: #222831;
+  --secondary: #393E46;
+  --accent: #00ADB5;
+  --gold: #FFD369;
+  --light: #EEEEEE;
+  --card-bg: rgba(255, 255, 255, 0.12);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --islamic-pattern: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(0,173,181,0.1)" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Tajawal', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Tajawal', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--light);
-    padding: 20px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    position: relative;
-    overflow-x: hidden;
+  min-height: 100vh;
+  color: var(--light);
+  background:
+    linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%),
+    var(--islamic-pattern);
+  position: relative;
+  overflow-x: hidden;
+  transition: margin-top 0.3s;
 }
 
 body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(0, 173, 181, 0.15) 0%, transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(255, 211, 105, 0.15) 0%, transparent 30%);
-    z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(0, 173, 181, 0.15) 0%, transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(255, 211, 105, 0.15) 0%, transparent 30%);
+  z-index: -1;
 }
 
 .container {
-    width: 100%;
-    max-width: 1100px;
-    text-align: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+  text-align: center;
 }
 
 .header {
-    margin-bottom: 60px;
-    animation: fadeIn 1s ease-out;
-    position: relative;
+  margin-bottom: 60px;
+  animation: fadeIn 1s ease-out;
+  position: relative;
 }
 
 .mosque-icon {
-    font-size: 5rem;
-    color: var(--gold);
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px rgba(255, 211, 105, 0.4));
+  font-size: 5rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px rgba(255, 211, 105, 0.4));
+  animation: float 4s ease-in-out infinite;
 }
 
 .header h1 {
-    font-size: 3.8rem;
-    margin-bottom: 20px;
-    color: var(--light);
-    font-weight: 700;
-    font-family: 'El Messiri', sans-serif;
-    line-height: 1.3;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  color: var(--light);
+  font-weight: 700;
+  font-family: 'El Messiri', sans-serif;
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .header p {
-    font-size: 1.8rem;
-    color: rgba(238, 238, 238, 0.9);
-    line-height: 1.8;
-    max-width: 800px;
-    margin: 0 auto;
+  font-size: 1.8rem;
+  color: rgba(238, 238, 238, 0.9);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .social-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 30px;
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  justify-content: center;
 }
 
 .social-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 40px 20px;
-    box-shadow: var(--shadow);
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 40px 20px;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.7s ease-out forwards;
+  opacity: 0;
 }
 
 .social-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .social-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--icon-color);
-    transition: all 0.5s ease;
-    z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--icon-color);
+  transition: all 0.5s ease;
+  z-index: -1;
 }
 
 .social-card:hover::before {
-    height: 100%;
-    border-radius: 20px;
+  height: 100%;
+  border-radius: 20px;
 }
 
 .social-icon {
-    font-size: 3.5rem;
-    margin-bottom: 25px;
-    color: var(--icon-color); 
-    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  font-size: 3.5rem;
+  margin-bottom: 25px;
+  color: var(--icon-color);
+  transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .social-card:hover .social-icon {
-    color: white;
-    transform: rotateY(360deg) scale(1.2);
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+  color: white;
+  transform: rotateY(360deg) scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
 }
 
 .social-name {
-    font-weight: 700;
-    font-size: 1.6rem;
-    transition: all 0.3s ease;
-    position: relative;
+  font-weight: 700;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .social-card:hover .social-name {
-    color: white;
-    letter-spacing: 1px;
+  color: white;
+  letter-spacing: 1px;
 }
 
-.facebook { --icon-color: #3b5998; }
-.twitter { --icon-color: #1da1f2; }
-.youtube { --icon-color: #ff0000; }
-.whatsapp { --icon-color: #25d366; }
-.telegram { --icon-color: #0088cc; }
-.website { --icon-color: var(--gold); }
-.instagram { --icon-color: #E1306C; }
-.soundcloud { --icon-color: #FF8800; }
+.facebook {
+  --icon-color: #3b5998;
+}
 
+.twitter {
+  --icon-color: #1da1f2;
+}
+
+.youtube {
+  --icon-color: #ff0000;
+}
+
+.whatsapp {
+  --icon-color: #25d366;
+}
+
+.telegram {
+  --icon-color: #0088cc;
+}
+
+.website {
+  --icon-color: var(--gold);
+}
+
+.instagram {
+  --icon-color: #E1306C;
+}
+
+.soundcloud {
+  --icon-color: #FF8800;
+}
+
+.random-ayah {
+  margin: 30px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  max-width: 800px;
+  position: relative;
+  border-right: 4px solid var(--gold);
+}
+
+.random-ayah .text {
+  font-size: 1.5rem;
+  line-height: 2.2;
+  font-family: 'El Messiri', sans-serif;
+  margin-bottom: 10px;
+}
+
+.random-ayah .surah-name {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.prayer-times-container {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 10px;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 211, 105, 0.3);
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateX(-120%);
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.prayer-times-container.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.prayer-times-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 211, 105, 0.2);
+}
+
+.prayer-times-header i {
+  color: var(--gold);
+  margin-left: 8px;
+}
+
+.prayer-times-header span {
+  font-weight: bold;
+  color: var(--gold);
+}
+
+.prayer-time {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.prayer-time:last-child {
+  border-bottom: none;
+}
+
+.prayer-name {
+  color: var(--light);
+}
+
+.prayer-time.active {
+  background: rgba(0, 173, 181, 0.2);
+  border-radius: 5px;
+  padding: 6px 8px;
+}
+
+.prayer-time.active .prayer-name {
+  font-weight: bold;
+  color: var(--gold);
+}
+
+.prayer-time.active .prayer-value {
+  font-weight: bold;
+}
+
+.prayer-value {
+  color: var(--light);
+}
+
+.location-info {
+  font-size: 0.8rem;
+  color: rgba(238, 238, 238, 0.7);
+  margin-top: 8px;
+  text-align: left;
+}
+
+.refresh-btn {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+
+.prayer-toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  background: var(--gold);
+  color: var(--primary);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.prayer-toggle-btn.hide {
+  opacity: 0;
+  transform: translateX(-20px);
+  pointer-events: none;
+}
+
+.prayer-toggle-btn:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateX(0) scale(1.05);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 211, 105, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 211, 105, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 211, 105, 0);
+  }
+}
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
-.social-card {
-    animation: fadeIn 0.7s ease-out forwards;
-    opacity: 0;
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
 }
 
-.social-card:nth-child(1) { animation-delay: 0.1s; }
-.social-card:nth-child(2) { animation-delay: 0.2s; }
-.social-card:nth-child(3) { animation-delay: 0.3s; }
-.social-card:nth-child(4) { animation-delay: 0.4s; }
-.social-card:nth-child(5) { animation-delay: 0.5s; }
-.social-card:nth-child(6) { animation-delay: 0.6s; }
-.social-card:nth-child(7) { animation-delay: 0.7s; }
-.social-card:nth-child(8) { animation-delay: 0.8s; }
+.social-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
 
-.mosque-icon {
-    animation: float 4s ease-in-out infinite;
+.social-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.social-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.social-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.social-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.social-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.social-card:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.social-card:nth-child(8) {
+  animation-delay: 0.8s;
 }
 
 @media (max-width: 900px) {
-    .header h1 {
-        font-size: 3rem;
-    }
-    
-    .header p {
-        font-size: 1.5rem;
-    }
-    
-    .social-links {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 25px;
-    }
+  .header h1 {
+    font-size: 3rem;
+  }
+
+  .header p {
+    font-size: 1.5rem;
+  }
+
+  .social-links {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+  }
+
+  .random-ayah .text {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 600px) {
-    .header h1 {
-        font-size: 2.4rem;
-    }
-    
-    .header p {
-        font-size: 1.3rem;
-    }
-    
-    .social-links {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-    
-    .social-icon {
-        font-size: 3rem;
-    }
+  .header h1 {
+    font-size: 2.4rem;
+  }
+
+  .header p {
+    font-size: 1.3rem;
+  }
+
+  .social-links {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .social-icon {
+    font-size: 3rem;
+  }
+
+  .random-ayah {
+    padding: 15px;
+  }
+
+  .random-ayah .text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .prayer-times-container {
+    width: 260px;
+    left: 10px;
+  }
+
+  .prayer-toggle-btn {
+    left: 10px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 400px) {
-    .social-links {
-        grid-template-columns: 1fr;
-    }
-    
-    .header h1 {
-        font-size: 2rem;
-    }
+  .social-links {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .prayer-times-header {
+    font-size: 0.9rem;
+  }
+
+  .prayer-times-container {
+    width: 240px;
+  }
 }
 
 .signature {
-    margin-top: 60px;
-    color: rgba(238, 238, 238, 0.7);
-    font-size: 1.3rem;
-    font-style: italic;
+  margin-top: 60px;
+  color: rgba(238, 238, 238, 0.7);
+  font-size: 1.3rem;
+  font-style: italic;
 }
-
 
 .particle {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
 }
-a{
-    text-decoration: none;
-    color: white;
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  display: none;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 99;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scrollTopBtn:hover {
+  background-color: var(--gold);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.progress-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+.scroll-effect {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-effect.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#shareBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: var(--gold);
+  color: var(--primary);
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 99;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#shareBtn:hover {
+  background-color: var(--accent);
+  color: white;
+  transform: scale(1.1);
 }
