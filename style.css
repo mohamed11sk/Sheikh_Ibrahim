@@ -521,7 +521,7 @@ a {
   bottom: 40px;
   left: 40px;
   display: none;
-  background-color: var(--accent);
+   background-color: var(--gold);
   color: black;
   border: none;
   padding: 15px;
