@@ -230,35 +230,38 @@ let lastScrollPosition = 0;
     }
 
     async function loadPrayerTimesForEgypt() {
-      try {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            async (position) => {
-              const { latitude, longitude } = position.coords;
-              await fetchPrayerTimes(latitude, longitude, true);
+  try {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          await fetchPrayerTimes(latitude, longitude, true);
 
-        
-              const city = await getCityName(latitude, longitude);
-              document.getElementById('locationInfo').textContent = `موقعك الحالي: ${city || 'غير معروف'}`;
-              document.getElementById('prayerLocation').textContent = city ? `${city}، مصر` : 'مصر';
-            },
-            async (error) => {
-              console.error('Error getting location:', error);
-              await fetchPrayerTimes(30.0444, 31.2357, false);
-              document.getElementById('locationInfo').textContent = 'تستخدم أوقات الصلاة لمدينة القاهرة (تحديد الموقع غير متاح)';
-              document.getElementById('prayerLocation').textContent = 'القاهرة، مصر';
-            }
-          );
-        } else {
-          await fetchPrayerTimes(30.0444, 31.2357, false);
-          document.getElementById('locationInfo').textContent = 'تستخدم أوقات الصلاة لمدينة القاهرة (تحديد الموقع غير مدعوم)';
-          document.getElementById('prayerLocation').textContent = 'القاهرة، مصر';
+          const city = await getCityName(latitude, longitude);
+          document.getElementById('locationInfo').textContent = `موقعك الحالي: ${city || 'غير معروف'}`;
+          document.getElementById('prayerLocation').textContent = city ? `${city}، مصر` : 'مصر';
+        },
+        async (error) => {
+          console.error('Error getting location:', error);
+          
+         
+          await fetchPrayerTimes(30.5877, 31.5020, false);
+          document.getElementById('locationInfo').textContent = 'تستخدم أوقات الصلاة لمدينة الزقازيق (تحديد الموقع غير متاح)';
+          document.getElementById('prayerLocation').textContent = 'الزقازيق، مصر';
         }
-      } catch (error) {
-        console.error('Error loading prayer times:', error);
-        document.getElementById('locationInfo').textContent = 'حدث خطأ في جلب أوقات الصلاة';
-      }
+      );
+    } else {
+     
+      await fetchPrayerTimes(30.5877, 31.5020, false);
+      document.getElementById('locationInfo').textContent = 'تستخدم أوقات الصلاة لمدينة الزقازيق (تحديد الموقع غير مدعوم)';
+      document.getElementById('prayerLocation').textContent = 'الزقازيق، مصر';
     }
+  } catch (error) {
+    console.error('Error loading prayer times:', error);
+    document.getElementById('locationInfo').textContent = 'حدث خطأ في جلب أوقات الصلاة';
+  }
+}
+
 
     async function fetchPrayerTimes(lat, lng, isUserLocation) {
       try {
