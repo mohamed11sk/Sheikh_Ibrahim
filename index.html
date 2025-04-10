@@ -20,7 +20,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=El+Messiri:wght@600&display=swap"
     rel="stylesheet">
   <style>
-   
+    /* إضافة أنماط لعرض العداد بشكل أفضل */
+    .visitor-counter {
+      background-color: rgba(0, 173, 181, 0.1);
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      display: inline-block;
+      font-weight: 500;
+    }
+    #visitCount {
+      font-weight: bold;
+      color: #00adb5;
+    }
   </style>
 </head>
 
@@ -96,12 +108,13 @@
         <div class="surah-name">سورة الأحزاب - الآية 70</div>
       </div>
      <!-- عداد الزيارات -->
-<div class="visitor-counter scroll-effect">
-  <i class="fas fa-users"></i>
-  <span id="visitCount">0</span> زائر للموقع
-</div>
+     <div class="visitor-counter scroll-effect">
+       <i class="fas fa-users"></i>
+       <span id="visitCount">0</span> زائر للموقع
+     </div>
     </div>
 
+    <!-- بقية الكود كما هو -->
     <div class="social-links">
       <a href="https://www.facebook.com/groups/7495656690521131/?ref=share&mibextid=CTbP7E" target="_blank"
         class="social-card facebook scroll-effect"
@@ -236,8 +249,36 @@
           }
         }
       });
+
+      // ========== الكود الجديد لعداد الزوار ==========
+      // زيادة العداد عند كل زيارة
+      function updateVisitorCounter() {
+        // تحقق من دعم localStorage
+        if (typeof(Storage) !== "undefined") {
+          // احصل على القيمة الحالية أو ابدأ من 0 إذا لم تكن موجودة
+          let visitCount = localStorage.getItem('siteVisitCount');
+          visitCount = visitCount ? parseInt(visitCount) : 0;
+          
+          // زيادة العداد فقط إذا كانت هذه أول زيارة في هذه الجلسة
+          if (!sessionStorage.getItem('visited')) {
+            visitCount++;
+            localStorage.setItem('siteVisitCount', visitCount);
+            sessionStorage.setItem('visited', 'true');
+          }
+          
+          // عرض العداد
+          document.getElementById('visitCount').textContent = visitCount;
+        } else {
+          document.getElementById('visitCount').textContent = "غير متاح";
+        }
+      }
+
+      // استدعاء الدالة عند تحميل الصفحة
+      updateVisitorCounter();
+      // ========== نهاية الكود الجديد ==========
     });
 
+    // بقية الدوال كما هي...
     // دالة للتعامل مع اتجاه السكرول
     function handleScrollDirection() {
       const currentScrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -555,8 +596,6 @@
         return null;
       }
     }
-   
   </script>
 </body>
-
 </html>
