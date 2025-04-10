@@ -522,7 +522,7 @@ a {
   left: 40px;
   display: none;
   background-color: var(--accent);
-  color: white;
+  color: black;
   border: none;
   padding: 15px;
   border-radius: 50%;
@@ -539,9 +539,9 @@ a {
 }
 
 #scrollTopBtn:hover {
-  background-color: var(--gold);
+  background-color: var(--accent);
+  color: white;
   transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 
