@@ -1,104 +1,139 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموقع الرسمي لفضيلة الشيخ إبراهيم الحصري الأزهري</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=El+Messiri:wght@600&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="style.css">
-    <style>
-      
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الموقع الرسمي لفضيلة الشيخ إبراهيم الحصري الأزهري</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=El+Messiri:wght@600&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src=" main.js"></script>
+
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="mosque-icon">
-                <i class="fas fa-mosque"></i>
-            </div>
-            <h1>فضيلة الشيخ الدكتور<br>إبراهيم الحصري الأزهري</h1>
-            <p> إنضم مع فضيلة الشيخ لمتابعة الدروس والمحاضرات والخطب الجديدة من جامع علي آغا 🕌</p>
-        </div>
-        
-        <div class="social-links">
-           
-            
+  
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
 
-            
-            <a href="https://youtube.com/@elshakh.ebrahim?si=vB2Nc92TIYnrDRbN" target="_blank" class="social-card youtube">
-                <div class="social-icon"><i class="fab fa-youtube"></i></div>
-                <div class="social-name">يوتيوب</div>
-            </a>
-              
-            <a href="https://chat.whatsapp.com/LPRrIJOjQ162o6HHC4nRg2" target="_blank" class="social-card whatsapp">
-                <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
-                <div class="social-name">واتساب</div>
-            </a>
-             <a href="https://www.facebook.com/groups/7495656690521131/?ref=share&mibextid=CTbP7E
-            " target="_blank" class="social-card facebook">
-                <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
-                <div class="social-name">فيسبوك</div>
-            </a>
-          
-            
-            <a href="https://t.me/Sheikh_Ibrahim" target="_blank" class="social-card telegram">
-                <div class="social-icon"><i class="fab fa-telegram-plane"></i></div>
-                <div class="social-name">تلغرام</div>
-            </a>
-            
-            <a href="javascript:location.reload();" class="social-card website">
-                <div class="social-icon"><i class="fas fa-globe-africa"></i></div>
-                <div class="social-name">الموقع الرسمي</div>
-                <br>
-                <h3 class=""> قريبا...</h3>
-            </a>
-            
-          
-            
-           
-        </div>
-        
-        <div class="signature">
-         
-            © جميع الحقوق محفوظة - الموقع الرسمي لفضيلة الشيخ
-            الدكتور
-           
-            إبراهيم الحصري الأزهري
-            <br>31/3/2025 <br>جامع علي آغا 🕌
- 
-            
+  <button class="prayer-toggle-btn" id="prayerToggleBtn">
+    <i class="fas fa-mosque"></i>
+    <span>أوقات الصلاة</span>
+  </button>
 
-        </div>
+  <div class="prayer-times-container" id="prayerTimesContainer">
+    <div class="prayer-times-header">
+      <div>
+        <i class="fas fa-mosque"></i>
+        <span id="currentPrayerTitle">أوقات الصلاة</span>
+      </div>
+      <div id="prayerLocation">القاهرة، مصر</div>
     </div>
 
-    <script>
-       
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            const colors = ['rgba(0, 173, 181, 0.3)', 'rgba(255, 211, 105, 0.3)', 'rgba(238, 238, 238, 0.3)'];
-            
-            for (let i = 0; i < 30; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                const size = Math.random() * 10 + 5;
-                const posX = Math.random() * window.innerWidth;
-                const posY = Math.random() * window.innerHeight;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * 10;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}px`;
-                particle.style.top = `${posY}px`;
-                particle.style.background = color;
-                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-                
-                document.body.appendChild(particle);
-            }
-        });
-    </script>
+    <div class="prayer-time" id="fajrTime">
+      <span class="prayer-name">الفجر</span>
+      <span class="prayer-value" id="fajrValue">--:--</span>
+    </div>
+
+    <div class="prayer-time" id="dhuhrTime">
+      <span class="prayer-name">الظهر</span>
+      <span class="prayer-value" id="dhuhrValue">--:--</span>
+    </div>
+
+    <div class="prayer-time" id="asrTime">
+      <span class="prayer-name">العصر</span>
+      <span class="prayer-value" id="asrValue">--:--</span>
+    </div>
+
+    <div class="prayer-time" id="maghribTime">
+      <span class="prayer-name">المغرب</span>
+      <span class="prayer-value" id="maghribValue">--:--</span>
+    </div>
+
+    <div class="prayer-time" id="ishaTime">
+      <span class="prayer-name">العشاء</span>
+      <span class="prayer-value" id="ishaValue">--:--</span>
+    </div>
+
+    <div class="location-info" id="locationInfo">
+      جاري تحديد الموقع...
+    </div>
+
+    <button class="refresh-btn" id="refreshPrayerTimes">
+      <i class="fas fa-sync-alt"></i> تحديث
+    </button>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <div class="mosque-icon">
+        <i class="fas fa-mosque"></i>
+      </div>
+      <h1>فضيلة الشيخ الدكتور<br>إبراهيم الحصري الأزهري</h1>
+      <p>إنضم مع فضيلة الشيخ لمتابعة الدروس والمحاضرات والخطب الجديدة من جامع علي آغا 🕌</p>
+
+      <div class="random-ayah scroll-effect">
+        <div class="text" id="randomAyahText">"يَا أَيُّهَا الَّذِينَ آمَنُوا اتَّقُوا اللَّهَ وَقُولُوا قَوْلًا
+          سَدِيدًا"</div>
+        <div class="surah-name">سورة الأحزاب - الآية 70</div>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/groups/7495656690521131/?ref=share&mibextid=CTbP7E" target="_blank"
+        class="social-card facebook scroll-effect"
+        data-ayah="وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ ۖ وَلَا تَعَاوَنُوا عَلَى الْإِثْمِ وَالْعُدْوَانِ ۚ وَاتَّقُوا اللَّهَ ۖ إِنَّ اللَّهَ شَدِيدُ الْعِقَابِ"
+        data-surah="المائدة: 2">
+        <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+        <div class="social-name">فيسبوك</div>
+      </a>
+
+      <a href="https://youtube.com/@elshakh.ebrahim?si=vB2Nc92TIYnrDRbN" target="_blank"
+        class="social-card youtube scroll-effect"
+        data-ayah="وَمَنْ أَحْسَنُ قَوْلًا مِّمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا وَقَالَ إِنَّنِي مِنَ الْمُسْلِمِينَ"
+        data-surah="فصلت: 33">
+        <div class="social-icon"><i class="fab fa-youtube"></i></div>
+        <div class="social-name">يوتيوب</div>
+      </a>
+
+      <a href="https://chat.whatsapp.com/LPRrIJOjQ162o6HHC4nRg2" target="_blank"
+        class="social-card whatsapp scroll-effect"
+        data-ayah="ادْعُ إِلَىٰ سَبِيلِ رَبِّكَ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ ۖ وَجَادِلْهُم بِالَّتِي هِيَ أَحْسَنُ"
+        data-surah="النحل: 125">
+        <div class="social-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="social-name">واتساب</div>
+      </a>
+
+      <a href="https://t.me/Sheikh_Ibrahim" target="_blank" class="social-card telegram scroll-effect"
+        data-ayah="وَقُل رَّبِّ زِدْنِي عِلْمًا" data-surah="طه: 114">
+        <div class="social-icon"><i class="fab fa-telegram-plane"></i></div>
+        <div class="social-name">تلغرام</div>
+      </a>
+
+      <a href="javascript:location.reload();" class="social-card website scroll-effect"
+        data-ayah="إِنَّمَا يَعْمُرُ مَسَاجِدَ اللَّهِ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ"
+        data-surah="التوبة: 18">
+        <div class="social-icon"><i class="fas fa-globe-africa"></i></div>
+        <div class="social-name">الموقع الرسمي</div>
+        <br>
+        <h3>قريبا...</h3>
+      </a>
+    </div>
+
+    <div class="signature scroll-effect">
+      © جميع الحقوق محفوظة - الموقع الرسمي لفضيلة الشيخ الدكتور<br>
+      إبراهيم الحصري الأزهري<br>
+      <span id="currentDate"></span> <br>جامع علي آغا 🕌
+    </div>
+  </div>
+
+  <button onclick="scrollToTop()" id="scrollTopBtn" title="العودة للأعلى"><i class="fas fa-arrow-up"></i></button>
+
+  <button onclick="shareWebsite()" id="shareBtn" title="مشاركة الموقع"><i class="fas fa-share-alt"></i></button>
+
 </body>
+
 </html>
