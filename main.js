@@ -211,6 +211,7 @@ let lastScrollPosition = 0;
         console.error('Error loading random ayah:', error);
       }
     }
+setInterval(loadRandomAyah, 8000);
 
     function typeWriterEffect(elementId, text) {
       const element = document.getElementById(elementId);
