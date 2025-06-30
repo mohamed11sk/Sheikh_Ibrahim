@@ -8,11 +8,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=El+Messiri:wght@600&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L0MYC5MFH9"></script>
+  <style>
+   
+  </style>
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L0MYC5MFH9"></script>
 </head>
 
 <body>
+
+  <div class="celebration-modal" id="celebrationModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <div class="celebration-icon">
+        <i class="fas fa-mosque"></i>
+      </div>
+      <h2 class="modal-title">كل عام وأنتم بخير</h2>
+      <div class="hijri-date">رأس السنة الهجرية 1447</div>
+      <p class="modal-message">
+        بمناسبة حلول العام الهجري الجديد، نبارك لكم ونسأل الله أن يجعله عام خير وبركة على الأمة الإسلامية
+      </p>
+      
+      <div class="progress-container-modal">
+        <div class="progress-bar-modal" id="modalProgressBar"></div>
+      </div>
+      
+      <p style="font-size: 1.3rem; color: #8e2a2a;">🎉 تقبل الله منا ومنكم صالح الأعمال 🎉</p>
+    </div>
+    
+    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 20%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 30%; animation-delay: 2s;"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 0.5s;"></div>
+    <div class="confetti" style="left: 50%; animation-delay: 1.5s;"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 2.5s;"></div>
+    <div class="confetti" style="left: 70%; animation-delay: 0.8s;"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 1.8s;"></div>
+    <div class="confetti" style="left: 90%; animation-delay: 2.8s;"></div>
+  </div>
 
   <div class="progress-container">
     <div class="progress-bar" id="progressBar"></div>
@@ -79,7 +112,6 @@
           سَدِيدًا"</div>
         <div class="surah-name">سورة الأحزاب - الآية 70</div>
       </div>
-
     </div>
 
     <div class="social-links">
@@ -108,7 +140,7 @@
       </a>
 
       <a href="https://t.me/Sheikh_Ibrahim" target="_blank" class="social-card telegram scroll-effect"
-        data-ayah="وَقُل رَّبِّ زِدْنِي عِلْمًا" data-surah="طه: 114">
+        data-ayah="وَقُل رَّבِّ زِدْنِي عِلْمًا" data-surah="طه: 114">
         <div class="social-icon"><i class="fab fa-telegram-plane"></i></div>
         <div class="social-name">تلغرام</div>
       </a>
@@ -132,18 +164,9 @@
 
   <button onclick="scrollToTop()" id="scrollTopBtn" title="العودة للأعلى"><i class="fas fa-arrow-up"></i></button>
 
-
   <button onclick="shareWebsite()" id="shareBtn" title="مشاركة الموقع"><i class="fas fa-share-alt"></i></button>
 
-  
-<script src="main.js"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-L0MYC5MFH9');
-</script>
+  <script src="main.js"></script>
 
 </body>
 
