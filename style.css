@@ -1,9 +1,9 @@
 :root {
   --primary: #222831;
-  --secondary: #393E46;
-  --accent: #00ADB5;
-  --gold: #FFD369;
-  --light: #EEEEEE;
+  --secondary: #393e46;
+  --accent: #00adb5;
+  --gold: #ffd369;
+  --light: #eeeeee;
   --card-bg: rgba(255, 255, 255, 0.12);
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   --islamic-pattern: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="rgba(0,173,181,0.1)" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Tajawal', sans-serif;
+  font-family: "Tajawal", sans-serif;
 }
 
 html {
@@ -23,8 +23,7 @@ html {
 body {
   min-height: 100vh;
   color: var(--light);
-  background:
-    linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%),
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%),
     var(--islamic-pattern);
   position: relative;
   overflow-x: hidden;
@@ -32,15 +31,22 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(0, 173, 181, 0.15) 0%, transparent 30%),
-    radial-gradient(circle at 80% 70%, rgba(255, 211, 105, 0.15) 0%, transparent 30%);
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 173, 181, 0.15) 0%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 211, 105, 0.15) 0%,
+      transparent 30%
+    );
   z-index: -1;
 }
 
@@ -71,7 +77,7 @@ body::before {
   margin-bottom: 20px;
   color: var(--light);
   font-weight: 700;
-  font-family: 'El Messiri', sans-serif;
+  font-family: "El Messiri", sans-serif;
   line-height: 1.3;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
@@ -114,7 +120,7 @@ body::before {
 }
 
 .social-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -181,11 +187,11 @@ body::before {
 }
 
 .instagram {
-  --icon-color: #E1306C;
+  --icon-color: #e1306c;
 }
 
 .soundcloud {
-  --icon-color: #FF8800;
+  --icon-color: #ff8800;
 }
 
 .random-ayah {
@@ -201,7 +207,7 @@ body::before {
 .random-ayah .text {
   font-size: 1.5rem;
   line-height: 2.2;
-  font-family: 'El Messiri', sans-serif;
+  font-family: "El Messiri", sans-serif;
   margin-bottom: 10px;
 }
 
@@ -377,11 +383,11 @@ body::before {
 
 @keyframes typing {
   from {
-    width: 0
+    width: 0;
   }
 
   to {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -460,10 +466,6 @@ a {
   display: none;
 }
 
-
-
-
-
 .progress-container {
   width: 100%;
   height: 4px;
@@ -512,8 +514,6 @@ a {
   align-items: center;
   justify-content: center;
 }
-
-
 
 @media (max-width: 900px) {
   .header h1 {
@@ -589,4 +589,141 @@ a {
   .prayer-times-container {
     width: 240px;
   }
+}
+
+.celebration-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(54, 50, 83, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: "Tajawal", sans-serif;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #f8f3e6, #e8d8b5);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  border: 3px solid #d4b168;
+  box-shadow: 0 0 30px rgba(212, 177, 104, 0.8);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #8e2a2a;
+  background: #d4b168;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.modal-title {
+  font-family: "El Messiri", sans-serif;
+  color: #8e2a2a;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.modal-message {
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.hijri-date {
+  font-size: 1.8rem;
+  color: #8e2a2a;
+  font-weight: bold;
+  margin: 15px 0;
+  font-family: "El Messiri", sans-serif;
+}
+
+.celebration-icon {
+  font-size: 60px;
+  color: #8e2a2a;
+  margin: 15px 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #d4b168;
+  opacity: 0;
+  z-index: -1;
+  animation: confetti-fall 5s linear infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.progress-container-modal {
+  width: 100%;
+  height: 8px;
+  background: #e0c9a0;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress-bar-modal {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #8e2a2a, #d4b168);
+  border-radius: 10px;
+  transition: width 0.1s linear;
 }
