@@ -77,7 +77,7 @@ let lastScrollPosition = 0;
       if (currentScrollPosition > lastScrollPosition) {
         if (prayerContainer.classList.contains('show')) {
           prayerContainer.classList.remove('show');
-          isPrayerMenuOpen = true; // نحتفظ بحالة أنها كانت مفتوحة
+          isPrayerMenuOpen = true; 
         }
       }
       else if (currentScrollPosition < lastScrollPosition) {
@@ -354,3 +354,47 @@ setInterval(loadRandomAyah, 8000);
         return null;
       }
     }
+ window.onload = function() {
+      const showCelebration = true; 
+      
+      if (showCelebration) {
+        const modal = document.getElementById('celebrationModal');
+        const progressBar = document.getElementById('modalProgressBar');
+        modal.style.display = 'flex';
+        
+        for (let i = 0; i < 100; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.backgroundColor = i % 2 === 0 ? '#d4b168' : '#8e2a2a';
+          confetti.style.width = (Math.random() * 10 + 5) + 'px';
+          confetti.style.height = (Math.random() * 10 + 5) + 'px';
+          confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          confetti.style.animationDelay = (Math.random() * 3) + 's';
+          modal.appendChild(confetti);
+        }
+        
+        let width = 0;
+        const interval = setInterval(function() {
+          if (width >= 100) {
+            clearInterval(interval);
+            modal.style.display = 'none';
+          } else {
+            width++;
+            progressBar.style.width = width + '%';
+          }
+        }, 40); 
+        
+        
+        document.getElementById('closeModal').addEventListener('click', function() {
+          clearInterval(interval);
+          modal.style.display = 'none';
+        });
+      }
+    };
+
+  
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L0MYC5MFH9');
